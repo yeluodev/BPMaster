@@ -153,7 +153,6 @@ public class HelloDota {
             ptst.setInt(20, entity.getEngine());
             ptst.setInt(21, entity.getRadiant_score());
             ptst.setInt(22, entity.getDire_score());
-
             ptst.setInt(23, entity.getRadiant_team_id());
             ptst.setString(24, entity.getRadiant_name());
             ptst.setLong(25, entity.getRadiant_logo());

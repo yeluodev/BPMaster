@@ -7,3 +7,70 @@
 该项League相同阵容的胜率（若有）
 该项League各英雄比赛胜率及数据
 BP阶段，相应阶段双方下一步BP的可能性猜测（分所有队长模式比赛，该战队比赛历史，BP选手的BP历史）
+
+
+-- --------------------------------------------------------
+-- 主机:                           127.0.0.1
+-- 服务器版本:                        10.2.12-MariaDB - mariadb.org binary distribution
+-- 服务器操作系统:                      Win64
+-- HeidiSQL 版本:                  9.4.0.5125
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- 导出 easydota2 的数据库结构
+CREATE DATABASE IF NOT EXISTS `easydota2` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `easydota2`;
+
+-- 导出  表 easydota2.match_details4 结构
+CREATE TABLE IF NOT EXISTS `match_details4` (
+  `_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `radiant_win` tinyint(1) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `pre_game_duration` int(11) NOT NULL,
+  `start_time` bigint(20) NOT NULL COMMENT '开始时间',
+  `match_id` bigint(20) NOT NULL,
+  `match_seq_num` bigint(20) NOT NULL,
+  `tower_status_radiant` int(11) NOT NULL,
+  `tower_status_dire` int(11) NOT NULL,
+  `barracks_status_radiant` int(11) NOT NULL,
+  `barracks_status_dire` int(11) NOT NULL,
+  `cluster` int(11) NOT NULL,
+  `first_blood_time` int(11) NOT NULL,
+  `lobby_type` tinyint(2) NOT NULL,
+  `human_players` int(11) NOT NULL,
+  `leagueid` int(11) NOT NULL,
+  `positive_votes` int(11) NOT NULL,
+  `negative_votes` int(11) NOT NULL,
+  `game_mode` tinyint(2) NOT NULL,
+  `flags` int(11) NOT NULL,
+  `engine` int(11) NOT NULL,
+  `radiant_score` int(11) NOT NULL,
+  `dire_score` int(11) NOT NULL,
+  `radiant_team_id` int(11) NOT NULL,
+  `radiant_name` text DEFAULT NULL,
+  `radiant_logo` bigint(20) NOT NULL,
+  `radiant_team_complete` int(11) NOT NULL,
+  `dire_team_id` int(11) NOT NULL,
+  `dire_name` text DEFAULT NULL,
+  `dire_logo` bigint(20) NOT NULL,
+  `dire_team_complete` int(11) NOT NULL,
+  `radiant_captain` int(11) NOT NULL,
+  `dire_captain` int(11) NOT NULL,
+  `players` mediumtext DEFAULT NULL,
+  `picks_bans` mediumtext DEFAULT NULL,
+  `radiant_team` mediumtext DEFAULT NULL,
+  `dire_team` mediumtext DEFAULT NULL,
+  PRIMARY KEY (`_id`),
+  UNIQUE KEY `match_id` (`match_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='dota2match详情';
+
+-- 数据导出被取消选择。
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
